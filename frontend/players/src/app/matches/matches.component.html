@@ -1,0 +1,48 @@
+<div class="form-matches-container">
+  <form [formGroup]="formMatch" (ngSubmit)="addMatch()">
+    <ion-item>
+      <ion-input label="Equipo Local" formControlName="localTeam"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Equipo Visitante"
+        formControlName="awayTeam"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        label="Fecha y Hora"
+        formControlName="matchDateTime"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Estadio" formControlName="stadium"></ion-input>
+    </ion-item>
+    <ion-button type="submit">Guardar</ion-button>
+    <ion-button (click)="editMatch()">Guardar Edición</ion-button>
+  </form>
+</div>
+
+<div class="table-matches-container" *ngFor="let match of matches">
+  <table>
+    <tr>
+      <th>Equipo Local</th>
+      <th>Equipo Visitante</th>
+      <th>Fecha y Hora</th>
+      <th>Estadio</th>
+    </tr>
+    <tr>
+      <td>{{ match.localTeam }}</td>
+      <td>{{ match.awayTeam }}</td>
+      <td>{{ match.matchDateTime }}</td>
+      <td>{{ match.stadium }}</td>
+    </tr>
+  </table>
+  <ion-button (click)="deleteMatch(match.id)">Borrar</ion-button>
+  <ion-button (click)="enableEdit(match, match.id)">Editar</ion-button>
+</div>
+
+<div class="router-button">
+  <button routerLink="/players">Players</button>
+  <button routerLink="/teams">Teams</button>
+</div>

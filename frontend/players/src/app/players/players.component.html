@@ -1,0 +1,31 @@
+<div class="form-players-container">
+  <form [formGroup]="formPlayer" (ngSubmit)="addPlayers()">
+    <ion-item>
+      <ion-input label="Nombre" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Dorsal" formControlName="dorsal"></ion-input>
+    </ion-item>
+    <ion-button type="submit">Guardar</ion-button>
+    <ion-button (click)="editPlayer()">Guardar Edición</ion-button>
+  </form>
+</div>
+<div class="table-players-container" *ngFor="let b of players">
+  <table>
+    <tr>
+      <th>Nombre</th>
+      <th>Dorsal</th>
+    </tr>
+    <tr>
+      <td>{{ b.name }}</td>
+      <td>{{ b.dorsal }}</td>
+    </tr>
+  </table>
+  <ion-button (click)="deletePlayer(b.id)">Borrar</ion-button>
+  <ion-button (click)="ableEdit(b, b.id)">Editar</ion-button>
+</div>
+
+<div class="router-button">
+  <button routerLink="/teams">Equipos</button>
+  <button routerLink="/matches">Partidos</button>
+</div>

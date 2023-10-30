@@ -1,0 +1,5 @@
+package com.david.players.entity.dao;
+
+public interface ITeamsDao {
+
+}
